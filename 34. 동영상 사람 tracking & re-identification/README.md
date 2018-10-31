@@ -34,8 +34,7 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 
   - Pose Estimation: PoseNet? 
-  ![dance1](https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png = 20x100)
-  <img src="https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png" width="50" height="100" />
+  <img src="https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png" width="300" height="1200" />
 
 
   
