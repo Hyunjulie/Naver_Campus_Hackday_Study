@@ -7,7 +7,7 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
   - Human Detection 
   - Pose Estimation 
   - Optical Flow
-  +) 의상과 외모가 비슷한 아이돌들을 구분하기 위해 독자적인 방법 
+  - +) 의상과 외모가 비슷한 아이돌들을 구분하기 위해 독자적인 방법 
 
 의 기술이 순차적으로 적용되었다고 한다. 
 
