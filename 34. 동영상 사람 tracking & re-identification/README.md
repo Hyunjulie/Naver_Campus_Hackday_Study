@@ -21,6 +21,35 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 --- 
 
+
+## Proposed Flow of Work 
+
+libraries: Tensorflow/pytorch, opencv etc.... 
+
+* 따로 따로 트레이닝을 시키고 적용...? 
+
+Step 1: Human Detection 을 이용해서 한 프레임에서 관심있는 사람을 identify 한다 
+ - 모든 인물에 대해서 각각 비디오를 생성할 때: 한 사람 한 사람에 대해서 다음 단계를 진행하면 됨 
+ - 주어진 인물에 대해서 하고 싶을 때: 특정 인물을 찾아내는 단계가 추가된다 (FaceNet etc) 
+ - User가 내가 원하는 인물은 여기에 있어! 라고 힌트를 줬을 때 (예를들어, 한 프레임에 대해서 관심있는 인물이 있는 박스를 만들어준다 -> Detection 해야하는 넓이를 줄여줌) -> 그 박스 안에 있는 사람에 대해서 다음 단계를 진행하면 됨 
+  - 또는, 모든 인물을 일단 찾아낸 후, user에게 누구에 대해서 진행하고 싶은지 물어보기 
+일단 Detect 해서 어느정도 Region of Interest를 찾아서 localize 하기 
+
+
+Step 2: ROI 에서 Pose Estimation 적용시켜서 ROI 를 더욱 세밀화 시키기 
+ - Pose Estimation 으로 얻으려는 것? 더욱 세밀화된 ROI, 인물이 가운데 올 수 있도록 조절하는 것 (가슴~배꼽까지가 가운데 오게 하기?) 
+ - crop 하는 부분이 계속 너무 움직이면 보는 사람 눈이 너무 피곤하고 안정적이지 못함.
+ - 어느정도 박스 크기의 Threshold 를 만들어서 그 안에서 인물이 움직이고 있다면 crop 되는 부분을 움직이지 않기 
+ - 안무의 경우, 인물이 팔이나 다리를 크게크게 사용할 수 있으니 인물의 어깨 & 가슴 부분을 crop된 부분의 가운데에 오게 하기 
+
+Step 3: ROI 에 대해서 현재 프레임과 바로 다음 프레임을 이용해서 optical flow 를 사용해서 인물의 위치를 알아내기/예측. 
+ - 인물이 빠르게 움직이면 ROI 밖에 있을 수도 있으니까 crop 할 크기보다는 조금 더 크게 input 으로 넣기 
+ - Optical flow 를 통해서 finalize region 
+
+
+--- 
+
+
 ## 공부할 때 참고할 것, Relevent Papers
 
   - Human Detection: 구글에서 공개한 Object Detection 용 API - Microsoft COCO 로 트레이닝 시킨 여러가지 모델이 있다 
@@ -48,33 +77,6 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
   
   
 ---
-
-### Flow of Work 
-
-libraries: Tensorflow/pytorch, opencv etc.... 
-
-* 따로 따로 트레이닝을 시키고 적용...? 
-
-Step 1: Human Detection 을 이용해서 한 프레임에서 관심있는 사람을 identify 한다 
- - 모든 인물에 대해서 각각 비디오를 생성할 때: 한 사람 한 사람에 대해서 다음 단계를 진행하면 됨 
- - 주어진 인물에 대해서 하고 싶을 때: 특정 인물을 찾아내는 단계가 추가된다 (FaceNet etc) 
- - User가 내가 원하는 인물은 여기에 있어! 라고 힌트를 줬을 때 (예를들어, 한 프레임에 대해서 관심있는 인물이 있는 박스를 만들어준다 -> Detection 해야하는 넓이를 줄여줌) -> 그 박스 안에 있는 사람에 대해서 다음 단계를 진행하면 됨 
-  - 또는, 모든 인물을 일단 찾아낸 후, user에게 누구에 대해서 진행하고 싶은지 물어보기 
-일단 Detect 해서 어느정도 Region of Interest를 찾아서 localize 하기 
-
-
-Step 2: ROI 에서 Pose Estimation 적용시켜서 ROI 를 더욱 세밀화 시키기 
- - Pose Estimation 으로 얻으려는 것? 더욱 세밀화된 ROI, 인물이 가운데 올 수 있도록 조절하는 것 (가슴~배꼽까지가 가운데 오게 하기?) 
- - crop 하는 부분이 계속 너무 움직이면 보는 사람 눈이 너무 피곤하고 안정적이지 못함.
- - 어느정도 박스 크기의 Threshold 를 만들어서 그 안에서 인물이 움직이고 있다면 crop 되는 부분을 움직이지 않기 
- - 안무의 경우, 인물이 팔이나 다리를 크게크게 사용할 수 있으니 인물의 어깨 & 가슴 부분을 crop된 부분의 가운데에 오게 하기 
-
-Step 3: ROI 에 대해서 현재 프레임과 바로 다음 프레임을 이용해서 optical flow 를 사용해서 인물의 위치를 알아내기/예측. 
- - 인물이 빠르게 움직이면 ROI 밖에 있을 수도 있으니까 crop 할 크기보다는 조금 더 크게 input 으로 넣기 
- - Optical flow 를 통해서 finalize region 
-
-
---- 
 ** Other Thoughts: ** 
 
 - Test할 때 블랙핑크의 불장난은 정말 좋은 선택인것 같다 -> 멤버들끼리 뭉치는 부분, 따로 추는 부분, 빨리 움직이는 부분, 꼼지락 거리는 부분, 그리고 무엇보다 팔을 크게크게 벌리는 부분이 많아서 상당히 어려운 예시같다... 
