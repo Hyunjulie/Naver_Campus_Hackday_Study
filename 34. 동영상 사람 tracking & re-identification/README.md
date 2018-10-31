@@ -37,8 +37,10 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
   
 
 --- 
-Other Thoughts: 
+** Other Thoughts: ** 
+
 초기 모델로는 Human/Face detection 을 통해서 특정 인물을 찾아내서 영상을 따는것 보다, 
+
 User 에게 원하는 인물의 box 를 그리게 해서 -> 그 박스 안에서 human detection -> 그 박스 안에 있는 사람을 따라다니는 모델도 좋을 것 같다 
-    - 그렇게 된다면 누군지 모르는 사람도 따라다니면서 영상을 만들 수 있는 기술로 좀 더 generalize할 수 있지 않을까? 
-    - 물론 이 방법은 end-to-end 가 아니여서 disadvantage 가 있겠지만, 오히려 user에게 freedom 을 줄 수 있는 부분? 
+ - 그렇게 된다면 누군지 모르는 사람도 따라다니면서 영상을 만들 수 있는 기술로 좀 더 generalize할 수 있지 않을까? 
+ - 물론 이 방법은 end-to-end 가 아니여서 disadvantage 가 있겠지만, 오히려 user에게 freedom 을 줄 수 있는 부분? 
