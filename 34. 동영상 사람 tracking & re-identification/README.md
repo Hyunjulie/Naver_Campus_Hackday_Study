@@ -21,7 +21,8 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 --- 
 
-공부용: 
+## 공부용: 
+
   - Human Detection: 구글에서 공개한 Object Detection 용 API - Microsoft COCO 로 트레이닝 시킨 여러가지 모델이 있다 
      - 시간 & 정확도의 tradeoff 가 있기 때문에... ssd + Inception v2 모델 이상의 mAP로 해야하지 않을까. 
      - 사람을 제외한 다른 물체를 filter 해서 Human Detection 으로 만드는 법? 
@@ -33,10 +34,15 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
      - 결국 중요한건 Optical Flow? 
 
 
-  - Pose Estimation: PoseNet? 
+  - Pose Estimation: PoseNet? Person
   <img src="https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png" width="200" height="300" />
 
-
+   - 포즈를 분석하면서 crop 할 화면의 크기를 더욱 세밀하게 조정 할 수 있음. 다만 여러 사람이랑 겹쳐있을 때 오류가 있음 
+   - 참고할 논문들 & Githubs
+    - Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields[https://arxiv.org/pdf/1611.08050.pdf]
+    - PersonLab (pose estimation & Segmentation)[https://arxiv.org/pdf/1803.08225.pdf] 
+    - PoseNet (https://github.com/tensorflow/tfjs-models/tree/master/posenet) - 브라우저에서도 할 수 있음 
+    - https://github.com/ildoonet/tf-pose-estimation
   
   - Optical Flow: FlowNet 2.0, Spatial Pyramid Network (lighter, faster) 
   
@@ -46,8 +52,9 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 ### Flow of Work 
 
-libraries: Tensorflow/pytorch, opencv 
+libraries: Tensorflow/pytorch, opencv etc.... 
 
+* 따로 
 
 Step 1: Human Detection 을 이용해서 한 프레임에서 관심있는 사람을 identify 한다 
  - 모든 인물에 대해서 각각 비디오를 생성할 때: 한 사람 한 사람에 대해서 다음 단계를 진행하면 됨 
