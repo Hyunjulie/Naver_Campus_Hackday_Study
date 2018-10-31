@@ -34,7 +34,7 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 
   - Pose Estimation: PoseNet? 
-  ![dance1](dance1.png)
+  ![dance1](https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png)
 
   
   - Optical Flow: FlowNet 2.0, Spatial Pyramid Network (lighter, faster) 
