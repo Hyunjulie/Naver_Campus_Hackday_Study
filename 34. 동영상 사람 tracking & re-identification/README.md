@@ -21,7 +21,7 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
 
 --- 
 
-## 공부용: 
+## 공부할 때 참고할 것, Relevent Papers
 
   - Human Detection: 구글에서 공개한 Object Detection 용 API - Microsoft COCO 로 트레이닝 시킨 여러가지 모델이 있다 
      - 시간 & 정확도의 tradeoff 가 있기 때문에... ssd + Inception v2 모델 이상의 mAP로 해야하지 않을까. 
@@ -34,9 +34,8 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
      - 결국 중요한건 Optical Flow? 
 
 
-  - Pose Estimation: PoseNet? Person
+  - Pose Estimation 의 예시 
   <img src="https://github.com/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/dance1.png" width="200" height="300" />
-
    - 포즈를 분석하면서 crop 할 화면의 크기를 더욱 세밀하게 조정 할 수 있음. 다만 여러 사람이랑 겹쳐있을 때 오류가 있음 
    - 참고할 논문들 & Githubs
     - Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields[https://arxiv.org/pdf/1611.08050.pdf]
