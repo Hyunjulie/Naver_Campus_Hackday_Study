@@ -32,12 +32,36 @@ Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V 
      - OR 영상에 있는 모든 사람을 찾아낸 후 -> User에게 제외할 사람을 고르게 한다 -> 그 외에 사람에 대해서 직캠영상을 만든다 
      - 결국 중요한건 Optical Flow? 
 
+
   - Pose Estimation: PoseNet? 
-  - Optical Flow
+  ![posenet1](34. 동영상 사람 tracking & re-identification/images/dance1.png)
+
   
+  - Optical Flow: FlowNet 2.0, Spatial Pyramid Network (lighter, faster) 
+  
+  
+  
+---
+
+### Flow of Work 
+
+libraries: Tensorflow/pytorch, opencv 
+
+
+Step 1: Human Detection 을 이용해서 한 프레임에서 관심있는 사람을 identify 한다 
+ - 모든 인물에 대해서 각각 비디오를 생성할 때: 한 사람 한 사람에 대해서 다음 단계를 진행하면 됨 
+ - 주어진 인물에 대해서 하고 싶을 때: 특정 인물을 찾아내는 단계가 추가된다 (FaceNet etc) 
+ - User가 내가 원하는 인물은 여기에 있어! 라고 힌트를 줬을 때 (예를들어, 한 프레임에 대해서 관심있는 인물이 있는 박스를 만들어준다 -> Detection 해야하는 넓이를 줄여줌) -> 그 박스 안에 있는 사람에 대해서 다음 단계를 진행하면 됨 
+  - 또는, 모든 인물을 일단 찾아낸 후, user에게 누구에 대해서 진행하고 싶은지 물어보기 
+
+Step 2: 
+
 
 --- 
 ** Other Thoughts: ** 
+
+- Test할 때 블랙핑크의 불장난은 정말 좋은 선택인것 같다 -> 멤버들끼리 뭉치는 부분, 따로 추는 부분, 빨리 움직이는 부분, 꼼지락 거리는 부분, 그리고 무엇보다 팔을 크게크게 벌리는 부분이 많아서 상당히 어려운 예시같다... 
+- 다음 테스트로 정말... 어려울 Exo 의 늑대와 미녀를 도전하면 재미있겠다 https://www.youtube.com/watch?v=jmyQqIELyfU 
 
 초기 모델로는 Human/Face detection 을 통해서 특정 인물을 찾아내서 영상을 따는것 보다, 
 
