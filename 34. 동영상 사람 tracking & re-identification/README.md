@@ -1,5 +1,13 @@
 # 여러명이 등장하는 동영상에서 특정 인물을 찾아내고 추적하는 기술 
+---
+Jupyter Notebook 이 열리지 않을 경우: https://nbviewer.jupyter.org/
+-  34. 비디오 동영상에서 인물 추적 및 Re-identification.ipynb: [링크](https://nbviewer.jupyter.org/github/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/34.%20%EB%8F%99%EC%98%81%EC%83%81%20%EC%82%AC%EB%9E%8C%20tracking%20%26%20re-identification/34.%20%EB%B9%84%EB%94%94%EC%98%A4%20%EB%8F%99%EC%98%81%EC%83%81%EC%97%90%EC%84%9C%20%EC%9D%B8%EB%AC%BC%20%EC%B6%94%EC%A0%81%20%EB%B0%8F%20Re-identification.ipynb)
 
+- FaceNet 정리: [링크](https://nbviewer.jupyter.org/github/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/34.%20%EB%8F%99%EC%98%81%EC%83%81%20%EC%82%AC%EB%9E%8C%20tracking%20%26%20re-identification/FaceNet%20%EC%A0%95%EB%A6%AC.ipynb)
+
+- 특정인물 Identification 단계: [링크](https://nbviewer.jupyter.org/github/Hyunjulie/Naver_Campus_Hackday_Study/blob/master/34.%20%EB%8F%99%EC%98%81%EC%83%81%20%EC%82%AC%EB%9E%8C%20tracking%20%26%20re-identification/%ED%8A%B9%EC%A0%95%EC%9D%B8%EB%AC%BCidentification_%EB%8B%A8%EA%B3%84.ipynb)
+
+---
 Tensorflow KR 페이스북에 포스트에 따르면 Clova Video AI 기술이 V LIVE에 적용되었다고 한다. 
 여러명의 아이돌이 등장하는 안무 영상에서 특정 아이돌의 직캠 영상을 자동으로 만들 수 있게 하는 기술이다.
 높은 정확도를 위해서 
